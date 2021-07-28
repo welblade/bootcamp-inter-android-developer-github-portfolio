@@ -46,7 +46,6 @@
             android:maxLines="2"
             tools:text="@sample/repositories.json/data/description"
             />
-
         <com.google.android.material.chip.Chip
             android:id="@+id/cp_star"
             android:layout_width="wrap_content"
