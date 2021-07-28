@@ -18,6 +18,7 @@
             android:layout_height="96dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -44,6 +45,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:ellipsize="end"
             android:maxLines="2"
+            style="@style/TextAppearance.MaterialComponents.Caption"
             tools:text="@sample/repositories.json/data/description"
             />
         <com.google.android.material.chip.Chip
@@ -71,6 +73,7 @@
             app:layout_constraintTop_toTopOf="@id/cp_star"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@id/cp_star"
+            style="@style/TextAppearance.MaterialComponents.Caption"
             tools:text="@sample/repositories.json/data/language"
             />
 
