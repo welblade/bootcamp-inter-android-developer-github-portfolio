@@ -1,9 +1,11 @@
 package br.com.dio.app.repositories
 
 import android.app.Application
+import br.com.dio.app.repositories.data.di.DataModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
+@Suppress("unused")
 class App : Application() {
 
     override fun onCreate() {
@@ -12,6 +14,6 @@ class App : Application() {
         startKoin {
             androidContext(this@App)
         }
-
+        DataModule.load()
     }
 }
