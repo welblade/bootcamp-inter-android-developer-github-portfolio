@@ -13,14 +13,22 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     private val mainViewModel: MainViewModel by viewModel()
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-
+    private val adapter = RepoListAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+        binding.rvRepoList.adapter = adapter
+        mainViewModel.getRepoList("welblade")
         mainViewModel.repos.observe(this) {
-
+            when(it){
+                is MainViewModel.State.Error -> {}
+                MainViewModel.State.Loading -> {}
+                is MainViewModel.State.Success -> {
+                    adapter.submitList(it.list)
+                }
+            }
         }
     }
 
