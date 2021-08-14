@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="oxford_blue">#FF020230</color>
+    <color name="dark_cornflower_blue">#FF083374</color>
+    <color name="lapis_lazuli">#FF0C598C</color>
+    <color name="kelly_green">#FF16C20A</color>
+    <color name="bitter_lime">#FFC4FF03</color>
+    <color name="ebony">#FF5B6057</color>
 </resources>

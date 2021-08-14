@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_owner_avatar"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp"
+        app:shapeAppearance="@style/roundedImageViewRounded"
+        app:strokeColor="@android:color/white"
+        app:strokeWidth="3dp"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_owner_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_owner_avatar"
+        app:layout_constraintTop_toBottomOf="@id/iv_owner_avatar"
+        app:layout_constraintEnd_toEndOf="@id/iv_owner_avatar"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textStyle="bold"
+        tools:text="@tools:sample/full_names" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_bio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_owner_avatar"
+        app:layout_constraintTop_toBottomOf="@id/tv_owner_name"
+        app:layout_constraintEnd_toEndOf="@id/iv_owner_avatar"
+        android:layout_marginStart="4dp" >
+        <TextView
+            android:id="@+id/tv_owner_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textStyle="bold"
+            tools:text="@tools:sample/full_names" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_login_create_at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_owner_avatar"
+        app:layout_constraintTop_toBottomOf="@id/ll_bio"
+        app:layout_constraintEnd_toEndOf="@id/iv_owner_avatar"
+        android:layout_marginStart="4dp" >
+        <TextView
+            android:id="@+id/tv_owner_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            tools:text="@tools:sample/first_names" />
+        <TextView
+            android:id="@+id/tv_owner_created_at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            tools:text="@tools:sample/date/ddmmyy" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_city_company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_owner_avatar"
+        app:layout_constraintTop_toBottomOf="@id/ll_login_create_at"
+        app:layout_constraintEnd_toEndOf="@id/iv_owner_avatar"
+        android:layout_marginStart="4dp" >
+        <TextView
+            android:id="@+id/tv_owner_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            tools:text="@tools:sample/cities" />
+        <TextView
+            android:id="@+id/tv_owner_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            tools:text="@tools:sample/last_names" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_owner_hireable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_owner_avatar"
+        app:layout_constraintTop_toBottomOf="@id/ll_city_company"
+        app:layout_constraintEnd_toEndOf="@id/iv_owner_avatar"
+        android:layout_marginStart="4dp" >
+        <TextView
+            android:id="@+id/tv_owner_hireable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            tools:text="Disponível para contratação" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_contact_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_owner_avatar"
+        app:layout_constraintTop_toBottomOf="@id/ll_owner_hireable"
+        app:layout_constraintEnd_toEndOf="@id/iv_owner_avatar"
+        android:orientation="horizontal"
+        >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_twitter"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="8dp"
+            app:srcCompat="@drawable/ic_twitter"
+            android:contentDescription="@string/twitter_user" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_mail"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="8dp"
+            app:srcCompat="@drawable/ic_mail"
+            android:contentDescription="@string/twitter_user" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/tv_owner_followers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/iv_owner_avatar"
+        app:layout_constraintTop_toBottomOf="@id/ll_contact_buttons"
+        app:layout_constraintEnd_toStartOf="@id/tv_owner_following"
+        android:layout_marginEnd="4dp"
+        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+        tools:text="0 Followers" />
+
+    <TextView
+        android:id="@+id/tv_owner_following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/tv_owner_followers"
+        app:layout_constraintTop_toTopOf="@id/tv_owner_followers"
+        app:layout_constraintEnd_toEndOf="@id/iv_owner_avatar"
+        android:layout_marginStart="4dp"
+        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+        tools:text="0 Following" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
