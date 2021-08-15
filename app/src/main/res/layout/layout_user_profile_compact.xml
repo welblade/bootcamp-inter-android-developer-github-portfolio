@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_owner_avatar"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="8dp"
+        app:shapeAppearance="@style/roundedImageViewRounded"
+        app:strokeColor="@android:color/white"
+        app:strokeWidth="3dp"
+        tools:src="@tools:sample/avatars" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_name_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/iv_owner_avatar"
+        app:layout_constraintTop_toTopOf="@id/iv_owner_avatar"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/tv_owner_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textStyle="bold"
+            tools:text="@tools:sample/full_names" />
+        <TextView
+            android:id="@+id/tv_owner_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:textStyle="bold"
+            android:text="@string/login"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_bio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/ll_name_login"
+        app:layout_constraintTop_toBottomOf="@id/ll_name_login"
+        >
+        <TextView
+            android:id="@+id/tv_owner_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            tools:text="@tools:sample/full_names" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_repositories_followers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/ll_name_login"
+        app:layout_constraintTop_toBottomOf="@id/ll_bio"
+        >
+        <TextView
+            android:id="@+id/tv_owner_repositories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="@string/n_repositories" />
+        <TextView
+            android:id="@+id/tv_owner_followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/n_followers" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>
