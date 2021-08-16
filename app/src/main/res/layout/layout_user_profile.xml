@@ -6,19 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_owner_avatar"
         android:layout_width="128dp"
         android:layout_height="128dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="32dp"
         app:shapeAppearance="@style/roundedImageViewRounded"
         app:strokeColor="@android:color/white"
         app:strokeWidth="3dp"
-        tools:src="@tools:sample/avatars"
-         />
+        tools:src="@tools:sample/avatars" />
     <TextView
         android:id="@+id/tv_owner_name"
         android:layout_width="wrap_content"
@@ -195,4 +195,5 @@
         app:layout_constraintEnd_toEndOf="@id/iv_owner_avatar"
         android:text="@string/n_following"
         tools:text="0 Following" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

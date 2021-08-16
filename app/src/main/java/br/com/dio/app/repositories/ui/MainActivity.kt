@@ -1,5 +1,7 @@
 package br.com.dio.app.repositories.ui
 
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -8,6 +10,7 @@ import android.view.Menu
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.core.animation.doOnEnd
 import br.com.dio.app.repositories.R
 import br.com.dio.app.repositories.core.createDialog
 import br.com.dio.app.repositories.core.createProgressDialog
@@ -36,9 +39,6 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         mainViewModel.repos.observe(this) {
             when(it){
                 is MainViewModel.State.Error -> {
-                    createDialog {
-                        setMessage(it.error.message)
-                    }.show()
                     dialog.dismiss()
                 }
                 MainViewModel.State.Loading -> {
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
             when(it){
                 is MainViewModel.OwnerState.Error -> {
                     createDialog {
-                        setMessage(it.error.message)
+                        setMessage(getString(R.string.error, it.error.message))
                     }.show()
                     dialog.dismiss()
                 }
@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                     val owner = it.owner
                     dialog.dismiss()
                     binding.toolbar.collapseActionView()
+                    binding.layoutEmptyState.root.visibility = View.GONE
                     setOwnerAvatar(owner.avatarURL)
                     binding.layoutProfile.tvOwnerName.text = owner.name
                     binding.layoutProfileCompact.tvOwnerName.text = owner.name
@@ -184,13 +185,42 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     private fun setListeners() {
         adapter.onRemovePositionZeroItemListener = { isPositionZeroItemRemovedFromList ->
+            val profileView = binding.layoutProfile.layoutProfileRoot
             if(isPositionZeroItemRemovedFromList){
-                binding.layoutProfile.layoutProfileRoot.visibility = View.GONE
+                ObjectAnimator.ofPropertyValuesHolder(
+                    profileView,
+                    PropertyValuesHolder.ofFloat("scaleX", 0.5f),
+                    PropertyValuesHolder.ofFloat("scaleY", 0.5f),
+                    PropertyValuesHolder.ofFloat("translationY", -32f),
+                    PropertyValuesHolder.ofFloat("translationX", -128f)
+                ).apply {
+                    duration = 100
+                    start()
+                    doOnEnd {
+                        profileView.visibility = View.GONE
+                    }
+                }
+                //binding.layoutProfile.layoutProfileRoot.visibility = View.GONE
                 binding.layoutProfileCompact.layoutProfileCompactRoot.visibility = View.VISIBLE
             }else{
-                binding.layoutProfile.layoutProfileRoot.visibility = View.VISIBLE
                 binding.layoutProfileCompact.layoutProfileCompactRoot.visibility = View.GONE
+                binding.layoutProfile.layoutProfileRoot.visibility = View.VISIBLE
+                ObjectAnimator.ofPropertyValuesHolder(
+                    profileView,
+                    PropertyValuesHolder.ofFloat("scaleX", 1f),
+                    PropertyValuesHolder.ofFloat("scaleY", 1f),
+                    PropertyValuesHolder.ofFloat("translationY", 0f),
+                    PropertyValuesHolder.ofFloat("translationX", 0f)
+                ).apply {
+                    duration = 100
+                    start()
+                }
+
             }
+        }
+        binding.layoutEmptyState.btSearch.setOnClickListener {
+            val menuItem = binding.toolbar.menu.findItem(R.id.action_search)
+            menuItem.expandActionView()
         }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

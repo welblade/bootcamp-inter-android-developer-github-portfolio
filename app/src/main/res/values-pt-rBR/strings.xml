@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App Repositories</string>
+    <string name="action_search">Pesquisar</string>
+    <string name="twitter_user">Twitter</string>
+    <string name="login">\@%1s</string>
+    <string name="member_since">Membro desde %2$s de %1$s de %3$s</string>
+    <string name="n_following">"Seguindo %d "</string>
+    <string name="n_followers">%d Seguidores</string>
+    <string name="hireable">Disponível para contratação</string>
+    <string name="n_repositories">%d Repositórios</string>
+    <string name="send_mail">Enviar Email</string>
+    <string name="let_s_find_a_fantastic_profile_today">Vamos encontrar um perfil fantástico hoje!</string>
+    <string name="search">Pesquisar</string>
+    <string name="error">Opa! Desculpe, falhamos em trazer este perfil para você.\nErro: %s</string>
+</resources>
