@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layout_profile_root"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,7 +17,8 @@
         app:shapeAppearance="@style/roundedImageViewRounded"
         app:strokeColor="@android:color/white"
         app:strokeWidth="3dp"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+         />
     <TextView
         android:id="@+id/tv_owner_name"
         android:layout_width="wrap_content"
@@ -60,14 +62,18 @@
             android:id="@+id/tv_owner_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
             android:text="@string/login"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:text="@string/separator"
             />
         <TextView
             android:id="@+id/tv_owner_created_at"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
             android:text="@string/member_since" />
     </androidx.appcompat.widget.LinearLayoutCompat>
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -91,6 +97,7 @@
             android:layout_height="wrap_content"
             tools:text="@tools:sample/cities" />
         <TextView
+            android:id="@+id/location_separator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
@@ -140,8 +147,11 @@
             android:layout_width="32dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_twitter"
+            android:clickable="true"
+            android:focusable="true"
             android:contentDescription="@string/twitter_user" />
         <TextView
+            android:id="@+id/contact_buttons_separator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
@@ -152,6 +162,8 @@
             android:layout_width="32dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/ic_mail"
+            android:clickable="true"
+            android:focusable="true"
             android:contentDescription="@string/twitter_user" />
     </androidx.appcompat.widget.LinearLayoutCompat>
     <TextView
@@ -160,12 +172,12 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/iv_owner_avatar"
         app:layout_constraintTop_toBottomOf="@id/ll_contact_buttons"
-        app:layout_constraintEnd_toStartOf="@id/separator"
+        app:layout_constraintEnd_toStartOf="@id/followers_separator"
         android:layout_marginTop="8dp"
         android:text="@string/n_followers"
         tools:text="0 Followers" />
     <TextView
-        android:id="@+id/separator"
+        android:id="@+id/followers_separator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/tv_owner_followers"
@@ -178,7 +190,7 @@
         android:id="@+id/tv_owner_following"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/separator"
+        app:layout_constraintStart_toEndOf="@id/followers_separator"
         app:layout_constraintTop_toTopOf="@id/tv_owner_followers"
         app:layout_constraintEnd_toEndOf="@id/iv_owner_avatar"
         android:text="@string/n_following"

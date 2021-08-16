@@ -18,7 +18,8 @@ class MainViewModel(private val userRepositoriesUseCase: ListUserRepositoriesUse
     private val _repos = MutableLiveData<State>()
     val repos: LiveData<State>
         get() { return _repos }
-
+    val owner: LiveData<OwnerState>
+        get() = _owner
     fun getRepoList(user: String){
         viewModelScope.launch {
             ownerUseCase(user)
@@ -38,7 +39,7 @@ class MainViewModel(private val userRepositoriesUseCase: ListUserRepositoriesUse
     }
     sealed class OwnerState {
         object Loading: OwnerState()
-        data class Success(val list: Owner) : OwnerState()
+        data class Success(val owner: Owner) : OwnerState()
         data class Error(val error: Throwable) : OwnerState()
     }
 }

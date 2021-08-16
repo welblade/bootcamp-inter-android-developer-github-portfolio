@@ -2,11 +2,14 @@
     <string name="app_name">App Repositories</string>
     <string name="action_search">Pesquisar</string>
     <string name="twitter_user">Twitter User</string>
-    <string name="login">\@login</string>
-    <string name="member_since">Member since May 23, 2021</string>
+    <string name="login">\@%1s</string>
+    <string name="member_since">Member since %1s %2s, %3s</string>
     <string name="separator">•</string>
-    <string name="n_following">%s Following</string>
-    <string name="n_followers">%s Followers</string>
+    <string name="n_following">%d Following</string>
+    <string name="n_followers">%d Followers</string>
     <string name="hireable">Hireable</string>
-    <string name="n_repositories">%s Repositories</string>
+    <string name="n_repositories">%d Repositories</string>
+    <string name="send_mail">Send Mail</string>
+    <string name="let_s_find_a_fantastic_profile_today">Let\'s find a fantastic profile today!</string>
+    <string name="search">Search</string>
 </resources>

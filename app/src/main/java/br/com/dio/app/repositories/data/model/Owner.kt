@@ -9,16 +9,17 @@ data class Owner (
     @SerializedName("avatar_url")
     val avatarURL: String,
     val name: String,
-    val company: String,
-    val location: String,
-    val email: String,
+    val company: String?,
+    val location: String?,
+    val email: String?,
     val hireable: Boolean,
-    val bio: String,
+    val bio: String?,
     @SerializedName("twitter_username")
-    val twitterUsername: String,
+    val twitterUsername: String?,
     @SerializedName("public_repos")
     val publicRepos: Int,
     val followers:Int,
     val following:Int,
-    val createAt:Date
+    @SerializedName("created_at")
+    val createdAt:Date
 )

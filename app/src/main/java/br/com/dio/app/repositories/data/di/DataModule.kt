@@ -1,6 +1,8 @@
 package br.com.dio.app.repositories.data.di
 
 import android.util.Log
+import br.com.dio.app.repositories.data.repository.OwnerRepository
+import br.com.dio.app.repositories.data.repository.OwnerRepositoryImpl
 import br.com.dio.app.repositories.data.repository.RepoRepository
 import br.com.dio.app.repositories.data.repository.RepoRepositoryImpl
 import br.com.dio.app.repositories.data.service.GitHubService
@@ -31,7 +33,9 @@ object DataModule {
                     .build()
             }
             single {
-                GsonConverterFactory.create(GsonBuilder().create())
+                GsonConverterFactory.create(
+                    GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create()
+                )
             }
             single {
                 createService<GitHubService>(get(), get())
@@ -42,6 +46,9 @@ object DataModule {
         return module {
             single<RepoRepository> {
                 RepoRepositoryImpl(get())
+            }
+            single<OwnerRepository> {
+                OwnerRepositoryImpl(get())
             }
         }
     }
